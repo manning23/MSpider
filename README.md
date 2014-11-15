@@ -15,13 +15,13 @@ MSpider
 
 功能：
 
-动态解析
+动态下载
 
-静态解析
+并发处理
 
-并发下载
+BloomFilter过滤
 
-BloomFilter 去重
+URL相似度过滤
 
 关键字过滤
 
