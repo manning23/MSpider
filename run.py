@@ -13,7 +13,24 @@ def main():
     global START_URLS
     global IGNORE_KEY_WORD
 
-    parser = optparse.OptionParser() 
+    photo = """
+       MMMM   MMMM                              MM                                         
+     MMMMMMMMMMMMMMM                          MM MMM       MMMMMMM                         
+    MM      M      MM                         M   MM       MM   MM                         
+    M               M     MMMMMM  MMMMMMMM    MMMMMM   MMMMMM   MM   MMMMMMMM     MMMMMM   
+    M    MM   MM    M   MMM   MM MM      MMM  M   MM  MM    M   MM  MM      MMM  MM    M   
+    M    MM   MM    M   M     MMMM         M  M   MM M      M   MM MM   MM    M MM     M   
+    M    MM   MM    M  MM    MMMM   MMMM   MM M   MMMM   MMMM   MMMM   MM     MMMM   MMM   
+    M    MM   MM    M MM    MM  M   MMMM   MM M   MM M   MMMM   MM M   MMMMMMMMMMM   M     
+    M    MM   MM    M M     MM MM   M     MM  M   MM MM        MM  MM      MM   MM   M     
+    M    MM   MM    MMM  MMMM  MM   MM   MM   M   MM  MMM    MMM    MMM    MMM  MM   M     
+    MMMMMMMMMMMMMMMMM MMMM     MM   MMMMM     MMMMMM    MMMMMM        MMMMMM    MMMMMM     
+                               MM   MM                                                     
+                                MMMMMM                                                     
+                                                                              by Manning"""
+
+    usage = photo
+    parser = optparse.OptionParser(usage=usage)  
     parser.add_option("-u", "--url",
                   dest = "url", 
                   default = 'http://www.bistu.edu.cn', 
@@ -102,9 +119,10 @@ def main():
     similarity = int(options.similarity)
     ignore_keyword = list(set(IGNORE_KEY_WORD + options.ignore_keyword.split(',')))
     focus_keyword = list(set(options.focus_keyword.split(',')))
+     
+    #print options
     
-    print options
-    print '---------------------------------------'
+    print photo
     server(threads_num,start_urls,fetch_time,keyword,ignore_keyword,download_mode,crawl_depth,fetch_count,fetch_mode,storage_model,similarity,focus_keyword)
 
 if __name__ == "__main__": 
