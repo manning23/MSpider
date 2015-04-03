@@ -105,7 +105,7 @@ def set_start_urls(key):
             temp_urls_list = []
             temp_urls_list.append(key)
             return temp_urls_list
-        elif len(key) < 7:
+        elif len(key) < 11:
             temp_urls_list = []
             for i in open('./data/allurl.txt').readlines():
                 t = ''
