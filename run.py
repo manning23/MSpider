@@ -88,7 +88,7 @@ def main():
 
     parser.add_option("--storage",
                   dest="storage_model", 
-                  default = 1, 
+                  default = 0, 
                   help="Storage mode: A small model 0  Large schemas 1  Don't store  3") 
 
     parser.add_option("--similarity",
