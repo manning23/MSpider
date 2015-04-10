@@ -188,7 +188,7 @@ def server(THREAD_NUM,START_URLS,FETCH_TIME,KEY_WORD,IGNORE_KEY_WORD,DOWNLOAD_MO
                 if i.depth <= DEPTH and SIMILARITY == 0:#SIMILARITY
                     if url_filter_similarity(i.url,KEY_WORD,IGNORE_KEY_WORD,FOCUSKEYWORD):
                         QUEUE_URLNODE.put(i)
-                        if STORAGE_MODEL == 0 or STORAGE_MODEL == 2:
+                        if STORAGE_MODEL == 1 or STORAGE_MODEL == 2:
                             QUEUE_SMART_NODE.put(i)
                     else:
                         REFUSE_COUNT += 1
@@ -196,7 +196,7 @@ def server(THREAD_NUM,START_URLS,FETCH_TIME,KEY_WORD,IGNORE_KEY_WORD,DOWNLOAD_MO
                 elif i.depth <= DEPTH and SIMILARITY == 1:
                     if url_filter_no_similarity(i.url,KEY_WORD,IGNORE_KEY_WORD,FOCUSKEYWORD):
                         QUEUE_URLNODE.put(i)
-                        if STORAGE_MODEL == 1 or STORAGE_MODEL == 2:
+                        if STORAGE_MODEL == 0 or STORAGE_MODEL == 2:
                             QUEUE_COMPLETE_NODE.put(i)
                     else:
                         REFUSE_COUNT += 1
