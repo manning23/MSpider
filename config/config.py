@@ -78,6 +78,12 @@ START_URLS = '/home/work/wanderSpider/data/starturls.txt'
 '''
 爬虫起始urls
 '''
+def clean_url(url):
+    character_list = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+    while url[-1] not in character_list:
+        url = url[:-1]
+    return url
+
 def set_start_urls(key):
     if os.path.isfile(str(key)):
         t = open(key).readlines()
@@ -111,14 +117,16 @@ def set_start_urls(key):
                 t = ''
                 if key in i:
                     if 'http://' in i:
-                        temp_urls_list.append(i[:-1])
+                        url = clean_url(i)
+                        temp_urls_list.append(url)
                     else:
-                        t = 'http://' + i[:-1]
-                        temp_urls_list.append(t)
+                        t = 'http://' + i[:-2]
+                        url = clean_url(t)
+                        temp_urls_list.append(url)
             return temp_urls_list
     else:
         return []
-START_URLS = set_start_urls(START_URLS)
+#START_URLS = set_start_urls(START_URLS)
 
 
 USER_AGENTS = [
@@ -141,5 +149,8 @@ USER_AGENTS = [
 ]
 
 HEADERS = {'User-Agent':random.choice(USER_AGENTS)}
+
+def random_header():
+    return {'User-Agent':random.choice(USER_AGENTS)}
 
 DEPTH = 1000

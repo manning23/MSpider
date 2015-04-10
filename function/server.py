@@ -63,7 +63,7 @@ def single_thread(mytuple,QUEUE_HTMLNODE,DOWNLOAD_MODE):
     global EXIT_FLAG
     global QUEUE_URLNODE
     stop_flag = 0
-    while stop_flag < 30:
+    while stop_flag < 15:
         if mytuple[0].qsize() > 0:
             stop_flag = 0
             node = mytuple[0].get()
@@ -71,11 +71,12 @@ def single_thread(mytuple,QUEUE_HTMLNODE,DOWNLOAD_MODE):
             html_node = HtmlNode(node.url,html,timestamp(),node.depth)
             QUEUE_HTMLNODE.put(html_node)
             TOTAL_COUNT += 1
-            print timestamp()+'\t'+str(node.depth)+'\t'+str(len(html))+'\t'+str(QUEUE_URLNODE.qsize())+'\t'+str(TOTAL_COUNT)+'\t'+str(REFUSE_COUNT) + '\t' +str(QUEUE_SMART_NODE.qsize()) + '\t' + str(QUEUE_COMPLETE_NODE.qsize()) + '\t' + node.url
+            if len(html) > 0:
+                print timestamp()+'\t'+str(node.depth)+'\t'+str(len(html))+'\t'+str(QUEUE_URLNODE.qsize())+'\t'+str(TOTAL_COUNT)+'\t'+str(REFUSE_COUNT) + '\t' +str(QUEUE_SMART_NODE.qsize()) + '\t' + str(QUEUE_COMPLETE_NODE.qsize()) + '\t' + node.url
 
         else:
             stop_flag += 1
-            time.sleep(10)
+            time.sleep(5)
     EXIT_FLAG += 1
 
         
@@ -187,7 +188,7 @@ def server(THREAD_NUM,START_URLS,FETCH_TIME,KEY_WORD,IGNORE_KEY_WORD,DOWNLOAD_MO
                 if i.depth <= DEPTH and SIMILARITY == 0:#SIMILARITY
                     if url_filter_similarity(i.url,KEY_WORD,IGNORE_KEY_WORD,FOCUSKEYWORD):
                         QUEUE_URLNODE.put(i)
-                        if STORAGE_MODEL == 1 or STORAGE_MODEL == 2:
+                        if STORAGE_MODEL == 0 or STORAGE_MODEL == 2:
                             QUEUE_SMART_NODE.put(i)
                     else:
                         REFUSE_COUNT += 1
@@ -195,7 +196,7 @@ def server(THREAD_NUM,START_URLS,FETCH_TIME,KEY_WORD,IGNORE_KEY_WORD,DOWNLOAD_MO
                 elif i.depth <= DEPTH and SIMILARITY == 1:
                     if url_filter_no_similarity(i.url,KEY_WORD,IGNORE_KEY_WORD,FOCUSKEYWORD):
                         QUEUE_URLNODE.put(i)
-                        if STORAGE_MODEL == 0 or STORAGE_MODEL == 2:
+                        if STORAGE_MODEL == 1 or STORAGE_MODEL == 2:
                             QUEUE_COMPLETE_NODE.put(i)
                     else:
                         REFUSE_COUNT += 1

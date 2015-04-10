@@ -27,7 +27,7 @@ def fetcher(url,DOWNLOAD_MODE):
     if DOWNLOAD_MODE == 0:
         #静态模式
         try:
-            response = requests.get(url,timeout = 15 ,headers = HEADERS)
+            response = requests.get(url,timeout = 15 ,headers = random_header())
             if response.status_code == 200:
                 return response.content
             else:
