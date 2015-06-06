@@ -28,14 +28,13 @@ FETCH_TIME_INTERVAL = 5
 抓取时间间隔
 '''
 
-FETCH_TIME = 3600*8
+FETCH_TIME = 3600 * 8
 '''
 抓取时间
 '''
 
-IGNORE_EXT = ('js','css','png','jpg','gif','bmp','svg','exif',\
-            'jpeg','exe','doc','docx','ppt','pptx','pdf','ico',\
-            'wmv','avi','swf','apk','xml','xls','thmx')
+IGNORE_EXT = ('cab', 'ico', 'swf', 'rar', 'zip', 'tar', 'gz', '7z', 'bz2', 'iso', 'nrg', 'uif', 'exe', 'rpm', 'deb', 'dmg', 'jar', 'jad', 'bin', 'apk', 'run', 'msi', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'doc', 'docx', 'odf',
+              'txt', 'rtf', 'odt', 'mkv', 'avi', 'mp4', 'flv', 'WebM', 'mov', 'wmv', '3gp', 'mpg', 'mpeg', 'mp3', 'wav', 'ogg', 'mp4a', 'wma', 'png', 'jpeg', 'jpg', 'xpm', 'gif', 'tiff', 'js', 'css', 'bmp', 'svg', 'exif', 'thmx', 'xml')
 '''
 不期待文件后缀
 '''
@@ -50,9 +49,11 @@ SPIDER_PROXY_DIC = {}
 '''
 爬虫代理ip字典
 '''
+
+
 def set_proxy_dic():
     if SPIDER_PROXY == True:
-        #设置爬虫代理ip字典
+        # 设置爬虫代理ip字典
         pass
 
 
@@ -62,13 +63,14 @@ THREAD_NUM = 10
 '''
 
 
-
 KEY_WORD = 'bjut'
-IGNORE_KEY_WORD = ['blog','bbs']
-CUSTOM_KEY = ['home.php','forum.php']
+IGNORE_KEY_WORD = ['blog', 'bbs']
+CUSTOM_KEY = ['home.php', 'forum.php']
 '''
 爬虫过滤关键字 字典  PS：列表形式
 '''
+
+
 def set_key_word(key):
     klist = key.split(',')
     return klist
@@ -78,11 +80,15 @@ START_URLS = '/home/work/wanderSpider/data/starturls.txt'
 '''
 爬虫起始urls
 '''
+
+
 def clean_url(url):
-    character_list = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+    character_list = list(
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
     while url[-1] not in character_list:
         url = url[:-1]
     return url
+
 
 def set_start_urls(key):
     if os.path.isfile(str(key)):
@@ -148,9 +154,10 @@ USER_AGENTS = [
     "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52",
 ]
 
-HEADERS = {'User-Agent':random.choice(USER_AGENTS)}
+HEADERS = {'User-Agent': random.choice(USER_AGENTS)}
+
 
 def random_header():
-    return {'User-Agent':random.choice(USER_AGENTS)}
+    return {'User-Agent': random.choice(USER_AGENTS)}
 
 DEPTH = 1000
