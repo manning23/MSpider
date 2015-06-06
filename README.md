@@ -65,28 +65,38 @@ Usage:
                                                                               by Manning
 
 Options:
+  Options:
   -h, --help            show this help message and exit
-  -u URL, --url=URL     Start the domain name
-  -t THREADS_NUM, --thread=THREADS_NUM
+  -u MSPIDER_URL, --url=MSPIDER_URL
+                        Start the domain name
+  -t MSPIDER_THREADS_NUM, --threads=MSPIDER_THREADS_NUM
                         Number of threads
-  --depth=DEPTH         Crawling depth
-  --model=MODEL         Crawling mode: Static 0  Dynamic 1  Mixed 2
-  --policy=POLICY       Crawling strategy: Breadth-first 0  Depth-first 1
+  --depth=MSPIDER_DEPTH
+                        Crawling depth
+  --count=MSPIDER_COUNT
+                        Crawling number: The default download 100000000 pages
+  --time=MSPIDER_TIME   Crawl time: The default crawl for 7 days
+  --similarity=MSPIDER_SIMILARITY
+                        Similarity check: True   False
+  --storage=MSPIDER_STORAGE
+                        Storage true save  false don't save
+  --spider-model=MSPIDER_MODEL
+                        Crawling mode: Static 0  Dynamic 1  Mixed 2
+  --spider-policy=MSPIDER_POLICY
+                        Crawling strategy: Breadth-first 0  Depth-first 1
                         Random-first 2
-  -k KEYWORD, --keyword=KEYWORD
-                        Focusing on the keywords in host
-  --time=FETCH_TIME     Crawl time: The default crawl for 7 days
-  --count=FETCH_COUNT   Crawling number: The default download 100000000 pages
-  --proxy               The proxy pattern
-  --ignore=IGNORE_KEYWORD
-                        Filter keyword in URL's host or path
-  --focus=FOCUS_KEYWORD
+  --focus-keyword=MSPIDER_FOCUS_KEYWORD
                         Focus keyword in URL's path
-  --storage=STORAGE_MODEL
-                        Storage mode: A small model 0  Large schemas 1  Don't
-                        store  3
-  --similarity=SIMILARITY
-                        Similarity check: True 0  False 1
+  --filter-keyword=MSPIDER_FILTER_KEYWORD
+                        Filter keyword in URL's path
+  --filter-domain=MSPIDER_FILTER_DOMAIN
+                        Filter domain
+  --focus-domain=MSPIDER_FOCUS_DOMAIN
+                        Focus domain
+  --random-agent=MSPIDER_AGENT
+                        like sqlmap --random-agent default is false: no random
+  --print-all=MSPIDER_PRINT_ALL
+                        mspider_print_all
 ``` 
 
 
