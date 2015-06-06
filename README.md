@@ -31,7 +31,10 @@ v2.0 更新说明
 
 BUG提交、需求提交、批评意见
 ------------------------------------------------------
-联系 乌云[Manning](http://www.wooyun.org/whitehats/Manning)    
+
+ 联系 乌云[Manning](http://www.wooyun.org/whitehats/Manning)   
+ 
+ qq 408468023
 
       
 参考文章
