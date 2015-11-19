@@ -30,11 +30,12 @@ def main():
                                                                               by Manning"""
 
     usage = photo
-    parser = optparse.OptionParser(usage=usage)  
-    parser.add_option("-u", "--url",
-                  dest = "url", 
-                  default = 'http://www.bistu.edu.cn', 
-                  help="Start the domain name")
+    parser = optparse.OptionParser(usage=usage)  #帮助文档的 usage项目 是 上面那张图片，666
+    #这样就没有了自带的usage ,推荐使用description=.
+    parser.add_option("-u", "--url",#命令行参数名称，可选
+                  dest = "url", #输出的时候的名字
+                  default = 'http://www.bistu.edu.cn', #默认值
+                  help="Start the domain name")#属性用法帮助
 
     parser.add_option("-t", "--thread", 
                   dest = "threads_num", 
@@ -52,12 +53,12 @@ def main():
                   help='''Crawling mode: Static 0  Dynamic 1  Mixed 2''') 
 
     parser.add_option("--policy",
-                  dest = "policy", 
+                  dest = "policy", #？这个地方改成 choices=["1","2","3"]更好一点
                   default = 0, 
                   help="Crawling strategy: Breadth-first 0  Depth-first 1  Random-first 2") 
 
     parser.add_option("-k", "--keyword",
-                  dest = "keyword", 
+                  dest = "keyword", #？这个应该是 action ="append"更好一点。接受多个参数，成为列表
                   default = 'bistu.edu', 
                   help="Focusing on the keywords in host") 
 
@@ -73,7 +74,7 @@ def main():
 
     parser.add_option("--proxy", action="store_true", 
                   dest = "proxy", 
-                  default = False, 
+                  default = False, #推荐用法是： action="store_Flase" 
                   help="The proxy pattern")
 
     parser.add_option("--ignore",
@@ -93,7 +94,7 @@ def main():
 
     parser.add_option("--similarity",
                   dest="similarity", 
-                  default = 0, 
+                  default = 0, #用true和false更好理解
                   help="Similarity check: True 0  False 1") 
     '''
     parser.add_option("-s", "--zdbk", action="store_true", 
@@ -102,11 +103,11 @@ def main():
                   help="write zdbk data to oracle db") 
     '''
 
-    (options, args) = parser.parse_args()
+    (options, args) = parser.parse_args()#把解析到的参数变成元组，也可以用vars(args)变成字典。
 
     
     
-    download_mode = int(options.model)
+    download_mode = int(options.model)#得到参数并格式化，也可以add_option中加入type='int'。
     threads_num = int(options.threads_num)
     keyword = set_key_word(options.keyword)
     fetch_time = int(options.fetch_time)
@@ -120,9 +121,10 @@ def main():
     ignore_keyword = list(set(IGNORE_KEY_WORD + options.ignore_keyword.split(',')))
     focus_keyword = list(set(options.focus_keyword.split(',')))
      
-    #print options
+    #print options 用 python run.py 调用的时候打印
     
     print photo
+    #把这些参数传入 function.server模块的server方法。
     server(threads_num,start_urls,fetch_time,keyword,ignore_keyword,download_mode,crawl_depth,fetch_count,fetch_mode,storage_model,similarity,focus_keyword)
 
 if __name__ == "__main__": 
