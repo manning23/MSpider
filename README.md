@@ -1,118 +1,59 @@
-Mspider即将更新，敬请期待~
-----
+# Mspider will update on Christmas Day!!
 
+## Findme
 
-Mspider2.0  网页链接爬虫
-===========================
- 爬虫功能 
------------------------------------------------------------------------------------------
-1. 可控的线程数                                             
-2. 可控的爬取深度                                                                   
-3. 可控的爬取数量                                                                 
-4. 可控的爬取时间                                                     
-5. 可控的域名聚焦、过滤（字符支持","(逗号)分割）                                       
-6. 可控的关键字聚焦、过滤（字符支持","(逗号)分割）                                                                  
-8. URL相似度过滤（可控开关）                                               
-9. 3种下载模式                     
-10. 3种爬取策略：宽度优先、深度优先、随机优先   
-11. 2种运行时的显示模式                                                      
-12. 数据存储（数据库为mongo）                                                     
-13. 内置起始URL字典
-14. 自动选择代理池（待完成）  
+If you face some problems or make something funny idea, you can ask question in github.
 
-v2.0 更新说明
-----------------------------
-本次更新主要完成了如下内容。
+And if you want to email manning23, you can send email to 408468023@qq.com.
 
-1. 构建全局变量类
-2. 构建UrlRule规则类
-3. 优化爬虫流程
-4. 补全过滤标签
-5. 更新相似度检查函数
-6. gevent模型
+:)
 
-6月26日 v2.0 技术更新
+## MSpider's help
 
-1. 动态下载模式不下载图片（大幅提速）
-2. 动态下载模式可设置ua字段
-3. 页面提取链接正则加强
+```
+Usage:
+  __  __  _____       _     _
+ |  \/  |/ ____|     (_)   | |
+ | \  / | (___  _ __  _  __| | ___ _ __
+ | |\/| |\___ \| '_ \| |/ _` |/ _ \ '__|
+ | |  | |____) | |_) | | (_| |  __/ |
+ |_|  |_|_____/| .__/|_|\__,_|\___|_|
+               | |
+               |_|
+                        Author: Manning23
 
-TODO
-----
-未来爬虫模块会整体迁移到Mscanner，作为其链接获取引擎。
-
-##### 希望大家对爬虫功能的一些问题提出宝贵意见
-
-
-BUG提交、需求提交、批评意见
-------------------------------------------------------
-
- 联系 乌云[Manning](http://www.wooyun.org/whitehats/Manning)   
- 
- qq 408468023
-
-      
-参考文章
--------------------------------------
-[《爬虫技术浅析》](http://drops.wooyun.org/tips/3915)—运用技术概述
-
-[《爬虫技术实战》](http://drops.wooyun.org/tips/5462)—Mspider使用实例
-
-
-
-效果截图
-------------------------------------------------------------
-```c
-Usage: 
-       MMMM   MMMM                              MM                                         
-     MMMMMMMMMMMMMMM                          MM MMM       MMMMMMM                         
-    MM      M      MM                         M   MM       MM   MM                         
-    M               M     MMMMMM  MMMMMMMM    MMMMMM   MMMMMM   MM   MMMMMMMM     MMMMMM   
-    M    MM   MM    M   MMM   MM MM      MMM  M   MM  MM    M   MM  MM      MMM  MM    M   
-    M    MM   MM    M   M     MMMM         M  M   MM M      M   MM MM   MM    M MM     M   
-    M    MM   MM    M  MM    MMMM   MMMM   MM M   MMMM   MMMM   MMMM   MM     MMMM   MMM   
-    M    MM   MM    M MM    MM  M   MMMM   MM M   MM M   MMMM   MM M   MMMMMMMMMMM   M     
-    M    MM   MM    M M     MM MM   M     MM  M   MM MM        MM  MM      MM   MM   M     
-    M    MM   MM    MMM  MMMM  MM   MM   MM   M   MM  MMM    MMM    MMM    MMM  MM   M     
-    MMMMMMMMMMMMMMMMM MMMM     MM   MMMMM     MMMMMM    MMMMMM        MMMMMM    MMMMMM     
-                               MM   MM                                                     
-                                MMMMMM                                                     
-                                                                              by Manning
 
 Options:
-  Options:
   -h, --help            show this help message and exit
   -u MSPIDER_URL, --url=MSPIDER_URL
-                        Start the domain name
+                        Target URL (e.g. "http://www.site.com/")
   -t MSPIDER_THREADS_NUM, --threads=MSPIDER_THREADS_NUM
-                        Number of threads
+                        Max number of concurrent HTTP(s) requests (default 10)
   --depth=MSPIDER_DEPTH
                         Crawling depth
   --count=MSPIDER_COUNT
-                        Crawling number: The default download 100000000 pages
-  --time=MSPIDER_TIME   Crawl time: The default crawl for 7 days
-  --similarity=MSPIDER_SIMILARITY
-                        Similarity check: True   False
-  --storage=MSPIDER_STORAGE
-                        Storage true save  false don't save
+                        Crawling number
+  --time=MSPIDER_TIME   Crawl time
+  --referer=MSPIDER_REFERER
+                        HTTP Referer header value
+  --cookies=MSPIDER_COOKIES
+                        HTTP Cookie header value
   --spider-model=MSPIDER_MODEL
-                        Crawling mode: Static 0  Dynamic 1  Mixed 2
+                        Crawling mode: Static_Spider: 0  Dynamic_Spider: 1
+                        Mixed_Spider: 2
   --spider-policy=MSPIDER_POLICY
                         Crawling strategy: Breadth-first 0  Depth-first 1
                         Random-first 2
   --focus-keyword=MSPIDER_FOCUS_KEYWORD
-                        Focus keyword in URL's path
+                        Focus keyword in URL
   --filter-keyword=MSPIDER_FILTER_KEYWORD
-                        Filter keyword in URL's path
+                        Filter keyword in URL
   --filter-domain=MSPIDER_FILTER_DOMAIN
                         Filter domain
   --focus-domain=MSPIDER_FOCUS_DOMAIN
                         Focus domain
   --random-agent=MSPIDER_AGENT
-                        like sqlmap --random-agent default is false: no random
+                        Use randomly selected HTTP User-Agent header value
   --print-all=MSPIDER_PRINT_ALL
-                        mspider_print_all
-``` 
-
-
-
+                        Will show more information
+```
