@@ -42,11 +42,7 @@ def get_url_by_lxml(url,html):
         return []
 
 def check_suffix(url):
-    ignore_ext = ['cab', 'ico', 'swf', 'bz2', 'iso', 'nrg', 'uif', 'exe', 'rpm', 'gpk', 'img',
-                  'deb', 'dmg', 'jar', 'jad', 'bin', 'apk', 'run', 'msi', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'doc',
-                  'docx', 'odf', 'txt', 'rtf', 'odt', 'mkv', 'avi', 'mp4', 'flv', 'webm', 'mov', 'wmv', '3gp', 'mpg',
-                  'mpeg', 'mp3', 'wav', 'ogg', 'mp4a', 'wma', 'png', 'jpeg', 'jpg', 'xpm', 'gif', 'tiff', 'css',
-                  'bmp', 'svg', 'exif', 'thmx','woff','ttf','htc','eot']
+    ignore_ext = ['wma', 'png', 'jpeg', 'jpg']
     suffix = urlparse.urlparse(url)[2].split('.')[-1].lower()
     if suffix in ignore_ext:
         return False

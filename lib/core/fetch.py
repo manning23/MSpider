@@ -23,10 +23,6 @@ spider_logger = logging.getLogger('MSpiderLogs')
 def html_pretreatment(html):
     html = html.lower()
     html = urllib2.unquote(html)
-    html = html.replace('&lt;','<')
-    html = html.replace('&gt;','>')
-    html = html.replace('&amp;','&')
-    html = html.replace('&nbsp;','')
     return html
 
 
