@@ -2,9 +2,7 @@
 
 ## Talk
 
-Merry Christmas
-
-Bless you with happy!
+You can join the QQ Group of 153691452, we can talk about MSpider.
 
 ## Findme
 
