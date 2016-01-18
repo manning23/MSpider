@@ -4,13 +4,36 @@
 
 You can join the QQ Group of 153691452, we can talk about MSpider.
 
-## Findme
 
-If you face some problems or make something funny idea, you can ask question in github.
+## Installation
 
-And if you want to email manning23, you can send email to 408468023@qq.com.
+In Ubuntu, you need to install some libraries.
 
-:)
+You can use pip or easy_install or apt-get to do this.
+
+- lxml
+- chardet
+- splinter
+- gevent
+- phantomjs
+
+## Example
+
+1. Use MSpider collect the vulnerability information on the wooyun.org.
+```
+	python mspider.py -u "http://www.wooyun.org/bugs/" --focus-domain "wooyun.org" --filter-keyword "xxx" --focus-keyword "bugs" -t 15 --random-agent true
+```
+
+
+2. Use MSpider collect the news information on the news.sina.com.cn.
+```
+	python mspider.py -u "http://news.sina.com.cn/c/2015-12-20/doc-ifxmszek7395594.shtml" --focus-domain "news.sina.com.cn"  -t 15 --random-agent true
+```
+
+## ToDo
+
+1. Crawl and storage of information.
+2. Distributed crawling.
 
 ## MSpider's help
 
