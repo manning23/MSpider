@@ -2,8 +2,7 @@
 
 ## Talk
 
-You can join the QQ Group of 153691452, we can talk about MSpider.
-
+....
 
 ## Installation
 
